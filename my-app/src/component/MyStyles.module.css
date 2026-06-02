@@ -1,0 +1,23 @@
+:global(body) {
+    background-color: rgba(61, 214, 237, 0.551);
+    font-family: Arial, sans-serif;
+}
+:global(.myheader) {
+  padding: 10px 20px;
+  font-size: 20px;
+  color: white;
+}
+:global(.mybutton) {
+  padding: 4px;
+  font-size: 10px;
+  border: none;
+  background-color: rgb(165, 40, 40);
+  border-radius: 4px;
+}
+
+.checkbox {
+  margin-right: 8px;
+  background-color: white;
+    border-radius: 4px grey;
+    
+}
