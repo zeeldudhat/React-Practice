@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
+import TestApi from "./Componets/TestApi";
 import Component from "./Componets";
 import "./App.css";
 
@@ -8,7 +9,8 @@ function App() {
 
   return (
     <>
-      <Component/>
+      <Component />
+      <TestApi />
     </>
   );
 }

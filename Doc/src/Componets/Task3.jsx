@@ -1,23 +1,27 @@
 import { useState } from "react";
 
-function Abc() {
+function Task3() {
   const [old, setOld] = useState("ABC");
+  // function change(e) {
+  //   //   let val={old};
+  //   if (old == "ABC") {
+  //     setOld("XYZ");
+  //   } else {
+  //     setOld("ABC");
+  //   }
+  // }
   return (
     <>
       <h5> Onclike of text changes</h5>
       {console.log(old)}
-      <p onClick={change} >
+      <p
+        onClick={() => {
+          old == "ABC" ? setOld("XYZ") : setOld("ABC");
+        }}
+      >
         {old}
       </p>
     </>
   );
-  function change(e) {
-    //   let val={old};
-    if (old =="ABC" ) {
-      setOld("XYZ");
-    } else {
-      setOld("ABC");
-    }
-  }
 }
-export default Abc;
+export default Task3;

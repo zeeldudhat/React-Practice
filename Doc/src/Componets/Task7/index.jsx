@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 function Todolist() {
   const [oldval, setvalue] = useState("");
   const [list, setlist] = useState([]);
+  const inputRef = useRef(null);
+
   function handlesubmit(e) {
     e.preventDefault();
     let data = [...list, oldval];
@@ -15,15 +17,6 @@ function Todolist() {
   }
   function handleChange(e) {
     let Getdata = e.target.value;
-    return (
-      <>
-        <input
-          type="text"
-          value={Getdata}
-          onChange={(e) => setvalue(e.target.value)}
-        />
-      </>
-    );
   }
   return (
     <>
@@ -39,19 +32,23 @@ function Todolist() {
           />{" "}
           <button type="submit">Add TAsk</button>
         </form>
-        {list.map((curVal, index) => {
-          return (
-            <>
-              <li id={index}>
-                {curVal}
+      </div>
+      {list.map((curVal, ind) => {
+
+        return (
+          <>
+            <div className="list">
+              {console.log()}
+              <li key={`to_do_${ind}`}>
+                {curVal.text}{" "}
                 <button onClick={handleChange}>+</button>{" "}
                 <button onClick={handledelete}>-</button>
               </li>
-            </>
-          );
-        })}{" "}
-        <br />
-      </div>
+            </div>
+          </>
+        );
+      })}{" "}
+      <br />
     </>
   );
 }

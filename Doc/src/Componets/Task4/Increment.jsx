@@ -1,17 +1,21 @@
-import Counter from "./Index.jsx";
-import {CountContext} from "./Index.jsx";
-import { useContext,useState } from "react";
-
+import { CountContext } from "./Index";
+import { useContext, useState } from "react";
+import Decrement from "./Decrement"
 function Increment() {
-  const old=useContext(CountContext);
-  console.log({old});
+  const {num ,Setnum} = useContext(CountContext);
+  console.log(Setnum);
   
-  const [num,Setnum]=useState(old);
-  console.log(num);
-  
+function add()
+{
+  Setnum(num + 1);
+}
   return (
     <>
-      <button onClick={()=>Setnum((num)=>num+1)}> Increment</button>
+      <button onClick={add}>
+        {" "}
+        Increment
+      </button>
+      <Decrement />
     </>
   );
 }

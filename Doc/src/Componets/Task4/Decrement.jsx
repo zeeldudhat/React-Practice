@@ -1,12 +1,12 @@
-import Counter from "./Index.jsx";
-import {CountContext} from "./Index.jsx"
-import { useContext } from "react";
+import { CountContext } from "./Index";
+import { useContext, useState } from "react";
 
+function Decrement({ decrement }) {
+  const num = useContext(CountContext);
 
-function Decrement() {
   return (
     <>
-      <button>Decrement</button>
+      <button> Decrement</button>
     </>
   );
 }

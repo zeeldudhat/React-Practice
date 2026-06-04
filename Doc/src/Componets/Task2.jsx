@@ -1,7 +1,7 @@
 import { useState, useE } from "react";
-function FromDisplay() {
-  const [view,setview]=useState();
-  const [Data, setData] = useState('');
+function Task2() {
+  const [view, setview] = useState();
+  const [Data, setData] = useState("");
   return (
     <>
       <h4>Inpute and View data on Button clcik</h4>
@@ -9,9 +9,10 @@ function FromDisplay() {
       <input
         type="text"
         value={Data}
-        onChange={(e)=>setData(e.target.value)}
+        onChange={(e) => setData(e.target.value)}
       />
-      <button type="submit" onClick={()=>setview(Data)}>
+      {/* <button type="submit" onClick={()=>document.getElementById("view").innerHTML=Data}> */}
+      <button type="submit" onClick={() => setview(Data)}>
         Submit
       </button>
       <p>Data:{view} </p>{" "}
@@ -19,6 +20,4 @@ function FromDisplay() {
   );
 }
 
-
-
-export default FromDisplay;
+export default Task2;

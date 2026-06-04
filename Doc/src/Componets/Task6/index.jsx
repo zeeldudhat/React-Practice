@@ -7,7 +7,7 @@ function Homepage() {
   return (
     <>
       <nav>
-        <Link to="home">HomePage</Link>
+        <Link to="homepage">HomePage</Link>
         <Link to="contact">ContactPage</Link>
         <Link to="about">AboutPage</Link>
         <Link to="collection">Collection</Link>{" "}

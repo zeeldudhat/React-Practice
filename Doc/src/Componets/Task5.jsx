@@ -2,16 +2,19 @@ import { useState } from "react";
 
 function Number() {
   const [num, setnum] = useState("1");
-  const [len, setlen] = useState(1);
-  let val = 1;
   function increment() {
-    for (let p = 1; p <= num.length; p++) {
-      for (let i = 1; i < num.length; i++) {
-        val++;
-        toString(val);
-        setnum((num) => num + val);
-      }
+    let val = 1;
+    let numlen = num.length * 2;
+
+    let lastnum = num.charAt(num.length - 1);
+    let startnum = parseInt(lastnum) + 1;
+
+    val = "";
+    for (let i = startnum; i <= numlen; i++) {
+      val += i;
     }
+    setnum((num) => num + val);
+    // numlen = 1;
   }
 
   return (
