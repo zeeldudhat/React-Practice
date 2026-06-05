@@ -1,7 +1,10 @@
-import React, { createContext, useContext, useState } from "react";
-import Increment from "./Increment";
+import React, { useState } from "react";
+import { CountContext } from "./SubTask3";
+import Increment from "./SubTask1";
 
-export const CountContext = createContext(null);
+// import Decrement from "./"
+
+// import Increment from "./"
 // export default function Task4() {
 
 //   const [num, Setnum] = useState(1);
@@ -19,15 +22,23 @@ export const CountContext = createContext(null);
 //   );
 // }
 
-export default function Task4() {
-  const [num, Setnum] = useState(0);
+function Task4() {
+  const [num, setNum] = useState(1);
+
+  // const dec = () => setNum((num) => num - 1);
+
+  const val = {
+    num,
+    setNum
+  };
 
   return (
     <>
-      <CountContext.Provider value={{ num, Setnum }}>
+      <CountContext.Provider value={val}>
         <Increment />
         <p>Counter: {num}</p>
       </CountContext.Provider>
     </>
   );
 }
+export default Task4;

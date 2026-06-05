@@ -15,15 +15,15 @@ import Homepage from "./Task6/index";
 import Collection from "./Task6/Collection";
 import About from "./Task6/About";
 import Contact from "./Task6/Contact";
-import { Child1, Child2, Child3 } from "./Task6/Collection";
 import Task7 from "./Task7";
+import Task8 from "./task89/Index";
 
 function Component() {
   return (
     <>
       <h1> Navigate to Links</h1>
 
-      <HashRouter>
+      <BrowserRouter>
         <nav>
           <Link to="/">Component</Link>
           <Link to="/Task1">Task1</Link>
@@ -33,8 +33,8 @@ function Component() {
           <Link to="/Task5">Task5</Link>
           <Link to="/Task6">Task6</Link>
           <Link to="/Task7">Task7</Link>
-          {/* <Link to="/Task8" >Task8</Link>
-        <Link to="/Task9" >Task9</Link> */}
+          <Link to="/Task8">Task8</Link>
+          {/*<Link to="/Task9" >Task9</Link> */}
         </nav>
         <Routes>
           <Route path="/" element={<h2>Welcome! Select a task above.</h2>} />
@@ -47,18 +47,14 @@ function Component() {
             <Route path="homepage" element={<h2>HomePage</h2>} />
             <Route path="about" element={<About />} />
             <Route path="contact" element={<Contact />} />
-            <Route path="collection" element={<Collection />}>
-              <Route path="child1" element={<Child1 />} />
-              <Route path="child2" element={<Child2 />} />
-              <Route path="child3" element={<Child3 />} />
-            </Route>
+            <Route path="collection" element={<Collection />} />
           </Route>
           <Route path="/Task7" element={<Task7 />} />
           <Route path="*" element={<h2>Page not found.</h2>} />
-          {/*        <Route path="Task8" />
-        <Route path="Task9" /> */}
+          <Route path="Task8" element={<Task8 />} />
+          {/* <Route path="Task9" /> */}
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
     </>
   );
 }

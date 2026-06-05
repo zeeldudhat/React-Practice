@@ -3,7 +3,7 @@ import Collection from "./Collection";
 import About from "./About";
 import Contact from "./Contact";
 
-function Homepage() {
+function Task6() {
   return (
     <>
       <nav>
@@ -13,8 +13,7 @@ function Homepage() {
         <Link to="collection">Collection</Link>{" "}
       </nav>
       <Outlet />
-     
     </>
   );
 }
-export default Homepage;
+export default Task6;

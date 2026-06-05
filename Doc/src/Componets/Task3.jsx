@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function Task3() {
-  const [old, setOld] = useState("ABC");
+  const [old, setOld] = useState(true);
   // function change(e) {
   //   //   let val={old};
   //   if (old == "ABC") {
@@ -13,13 +13,13 @@ function Task3() {
   return (
     <>
       <h5> Onclike of text changes</h5>
-      {console.log(old)}
+      {/* {console.log(old)} */}
       <p
         onClick={() => {
-          old == "ABC" ? setOld("XYZ") : setOld("ABC");
+          setOld(old => !old)
         }}
       >
-        {old}
+        {old ? "ABC" : "XYZ"}
       </p>
     </>
   );
