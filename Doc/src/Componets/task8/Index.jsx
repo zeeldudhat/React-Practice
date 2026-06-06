@@ -10,11 +10,9 @@ function Task8() {
       const req = await fetch("https://dummyjson.com/users");
       const res = await req.json();
       let lists = await res.users;
-      console.log(lists);
-
       if (lists) {
         setData(lists);
-        console.log(res);
+        // console.log(res);
       }
     } catch (error) {
       console.log(error);

@@ -16,8 +16,8 @@ import Collection from "./Task6/Collection";
 import About from "./Task6/About";
 import Contact from "./Task6/Contact";
 import Task7 from "./Task7";
-import Task8 from "./task89/Index";
-
+import Task8 from "./task8/Index";
+import Task9 from "./task9/Index";
 function Component() {
   return (
     <>
@@ -34,7 +34,7 @@ function Component() {
           <Link to="/Task6">Task6</Link>
           <Link to="/Task7">Task7</Link>
           <Link to="/Task8">Task8</Link>
-          {/*<Link to="/Task9" >Task9</Link> */}
+          <Link to="/Task9">Task9</Link>
         </nav>
         <Routes>
           <Route path="/" element={<h2>Welcome! Select a task above.</h2>} />
@@ -50,9 +50,9 @@ function Component() {
             <Route path="collection" element={<Collection />} />
           </Route>
           <Route path="/Task7" element={<Task7 />} />
-          <Route path="*" element={<h2>Page not found.</h2>} />
           <Route path="Task8" element={<Task8 />} />
-          {/* <Route path="Task9" /> */}
+          <Route path="Task9" element={<Task9 />} />
+          <Route path="*" element={<h2>Page not found.</h2>} />
         </Routes>
       </BrowserRouter>
     </>

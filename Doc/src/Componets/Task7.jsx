@@ -3,13 +3,18 @@ import { useState, useEffect, useRef } from "react";
 function Task7() {
   const [oldval, setvalue] = useState("");
   const [list, setlist] = useState([]);
-  let new_val;
+  const [change, setChange] = useState();
+
   function handlesubmit(e) {
     e.preventDefault();
-    if (!list.includes(oldval) && oldval !== "" && !list.includes(new_val)) {
+    if (!list.includes(oldval) && oldval !== "" && !change) {
       let data = [...list, oldval];
       setlist(data);
       setvalue("");
+    } else if (change && !list.includes(oldval)) {
+      let find = list.splice(change, 1, oldval);
+      setvalue("");
+      setChange(null);
     } else {
       console.log("emptys ");
     }
@@ -21,9 +26,6 @@ function Task7() {
   function handleChange(e) {
     let btn = document.getElementById("btn_pls_0");
     let ind = btn.parentElement.value;
-
-    // console.log(btn);
-    // let btn1 = Object.keys(btn);
   }
 
   let list_i = list.map((curVal, ind) => {
@@ -35,6 +37,8 @@ function Task7() {
         setlist={setlist}
         val={oldval}
         setval={setvalue}
+        ch={change}
+        setch={setChange}
       />
     );
   });
@@ -43,15 +47,15 @@ function Task7() {
       <div>
         <h1>TODO List..</h1>
         {/* <form className="todoform" /*onSubmit={handlesubmit}> */}
-          <input
-            type="text"
-            value={oldval}
-            placeholder="Add the task!!"
-            onChange={(e) => setvalue(e.target.value)}
-          />{" "}
-          <button type="submit" onClick={handlesubmit}>
-            Add TAsk
-          </button>
+        <input
+          type="text"
+          value={oldval}
+          placeholder="Add the task!!"
+          onChange={(e) => setvalue(e.target.value)}
+        />{" "}
+        <button type="submit" onClick={handlesubmit}>
+          Add TAsk
+        </button>
         {/* </form> */}
       </div>
       <div className="OuterDiv">
@@ -63,17 +67,30 @@ function Task7() {
   );
 }
 
-function ToDoListItems({ value, index, list, setlist, val, setval }) {
+function ToDoListItems({
+  value,
+  index,
+  list,
+  setlist,
+  val,
+  setval,
+  ch,
+  setch,
+}) {
   let delet = () => {
     alert(index);
     let result = list.filter((val, ind) => ind != index);
     setlist(result);
-    console.log(list);
   };
 
-  let add = (e) => {
-    let update = list.filter((val, ind) => ind == index);
-    new_val = setval(String(update));
+  let add = () => {
+    let update = list.filter((val, ind) => {
+      if (ind === index) {
+        return val;
+      }
+    });
+    setval(update);
+    setch((prev) => list.indexOf(update[0]));
   };
   return (
     <li>
@@ -84,14 +101,3 @@ function ToDoListItems({ value, index, list, setlist, val, setval }) {
 }
 
 export default Task7;
-{
-  /* <li key={`to_do_${ind}`}>
-        {curVal}{" "}
-        <button onClick={handleChange} id={`btn_pls_${ind}`}>
-          +
-        </button>{" "}
-        <button onClick={handledelete} id={`btn_mns_${ind}`}>
-          -
-        </button>
-      </li> */
-}
