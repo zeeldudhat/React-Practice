@@ -1,0 +1,15 @@
+.text{
+    color: rgb(5, 5, 5);
+}
+.green{
+    composes:text;
+    background-color: rgba(0, 128, 0, 0.555);
+}
+.yellow{
+    composes:text;
+    background-color: rgba(255, 255, 0, 0.548);
+}
+.red{
+    composes:text;
+    background-color: rgba(252, 48, 48, 0.473);
+}

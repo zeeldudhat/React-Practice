@@ -9,8 +9,8 @@ function App() {
 
   return (
     <>
-      <Component />
-      {/* <TestApi /> */}
+      {/* <Component /> */}
+      <TestApi />
     </>
   );
 }

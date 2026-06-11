@@ -1,27 +1,35 @@
 import React, { useEffect } from "react";
 import Api from "../Apicall";
 import { useState } from "react";
-// import Users from "./Subfile";
+import Subfile from "./Subfile";
+
 function Task8() {
   const [data, setData] = useState([]);
-
-  let api_call = async function () {
+  async function api_call() {
     try {
-      const req = await fetch("https://dummyjson.com/users");
-      const res = await req.json();
-      let lists = await res.users;
-      if (lists) {
-        setData(lists);
-        // console.log(res);
-      }
+      const res = await Api("GET", "https://dummyjson.com/users");
+      setData(res.users);
+      // console.log(res.users);
     } catch (error) {
       console.log(error);
     }
-  };
+  }
   useEffect(() => {
     api_call();
   }, []);
 
+  // const green = {
+  //   backgroundColor: "green",
+  //   color: "white",
+  // };
+  // const red = {
+  //   backgroundColor: "red",
+  //   color: "white",
+  // };
+  // const yellow = {
+  //   backgroundColor: "yellow",
+  //   color: "black",
+  // };
   return (
     <>
       <h2>TAsk8</h2>
@@ -34,30 +42,8 @@ function Task8() {
             <th>city</th>
           </tr>
         </thead>
-
         <tbody className="tbody">
-          {data.map((values) => {
-            const { id, firstName, lastName, age, address } = values;
-            return (
-              <>
-                <tr
-                  key={`ID_${id}`}
-                  style={
-                    age > 10 && age < 30
-                      ? { backgroundColor: "green", color: "white" }
-                      : age > 30 && age < 45
-                        ? { backgroundColor: "yellow", color: "black" }
-                        : { backgroundColor: "red", color: "white" }
-                  }
-                >
-                  <td>{firstName}</td>
-                  <td>{lastName}</td>
-                  <td>{age}</td>
-                  <td>{address.city}</td>
-                </tr>
-              </>
-            );
-          })}
+          <Subfile data={data} />
         </tbody>
       </table>
     </>

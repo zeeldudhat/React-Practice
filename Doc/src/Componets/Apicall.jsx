@@ -15,7 +15,7 @@ async function Apicall(method, url, data) {
       const call = await fetch(url, payload);
       const res = await call.json();      
       return res;
-    } catch (err) {
+    } catch(err) {
       console.log(err);
     }
   } else if (method === "POST") {

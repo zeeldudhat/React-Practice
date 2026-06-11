@@ -17,7 +17,7 @@ import About from "./Task6/About";
 import Contact from "./Task6/Contact";
 import Task7 from "./Task7";
 import Task8 from "./task8/Index";
-import Task9 from "./task9/Index";
+import Task9 from "./task9";
 function Component() {
   return (
     <>
